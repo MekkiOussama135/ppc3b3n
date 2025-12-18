@@ -1,65 +1,86 @@
-#ifndef CALLBACKS_H_INCLUDED
-#define CALLBACKS_H_INCLUDED
+#ifndef CALLBACKS_H
+#define CALLBACKS_H
 
 #include <gtk/gtk.h>
 
-/* Fenêtre coach */
-void on_button2_valider_clicked(GtkWidget *button, gpointer user_data);
-void on_alignment1_add(GtkContainer *container, GtkWidget *widget, gpointer user_data);
-void on_button1_mdo_clicked(GtkWidget *button, gpointer user_data);
-void on_button4_sinsc_clicked(GtkWidget *button, gpointer user_data);
-void on_alignment2_add(GtkContainer *container, GtkWidget *widget, gpointer user_data);
-void on_buttonreserver_coach_equipm_clicked(GtkWidget *button, gpointer user_data);
-void on_s_inscrire_cours_clicked(GtkWidget *button, gpointer user_data);
-void on_coach_reserver_equipm_clicked(GtkWidget *button, gpointer user_data);
+// ==============================
+// PROTOTYPES des callbacks
+// ==============================
+void
+on_ajout_cours1_clicked                (GtkWidget       *button,
+                                        gpointer         user_data);
+// Cours & planning
+void on_cours_selection_changed(GtkTreeSelection *selection, gpointer user_data);
+int get_selected_cours_id(GtkWidget *treeview);
+void load_lessons_into_treeview(GtkWidget *treeview);
+void afficher_planning(GtkWidget *treeview, int id_cours, const char *type_programme);
+void on_inscrirecours1_clicked(GtkWidget *button, gpointer user_data);
 
-/* Fenêtre admin */
-void on_button4_supprimer_coach_clicked(GtkWidget *button, gpointer user_data);
-void on_button3_ajouter_coach_clicked(GtkWidget *button, gpointer user_data);
-void on_button5_modofier_coach_clicked(GtkWidget *button, gpointer user_data);
-void on_button6_chercher_coach_clicked(GtkWidget *button, gpointer user_data);
+// Admin / Cours
+void on_rechercheadmin1_clicked(GtkWidget *button, gpointer user_data);
+void on_modifcoursadmin1_clicked(GtkWidget *button, gpointer user_data);
+void on_supprimeradmin1_clicked(GtkWidget *button, gpointer user_data);
+void on_ajoutadmin1_clicked(GtkWidget *button, gpointer user_data);
 
-/* Radio buttons */
-void on_radiobutton1_1a_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_radiobutton2_2a_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_radiobutton3_3a_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+// Radios Ajout
+void on_radio_homme_add1_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+void on_radio_femme_add1_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+void on_radio_mixte_add1_toggled(GtkToggleButton *togglebutton, gpointer user_data);
 
-/* Check buttons (ajout) */
-void on_checkbutton3_BP_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton2_BA_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton1_BC_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton4_BB_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton8_LD_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton7_zoum_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton6_yoga_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton5_Car_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+// Supprimer Cours
+void on_supprimer_cours1_clicked(GtkWidget *button, gpointer user_data);
 
-/* Boutons admin - CHANGEMENT ICI: GtkWidget au lieu de GtkButton */
-void on_button1_enregistrer_A_clicked(GtkWidget *button, gpointer user_data);
-void on_button3_supp_clicked(GtkWidget *button, gpointer user_data);
+// Radios Modif
+void on_radio_homme_modif1_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+void on_radio_femme_modif1_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+void on_radio_mixte_modif1_toggled(GtkToggleButton *togglebutton, gpointer user_data);
 
-/* Radio buttons (modification) */
-void on_radiobutton4_1ans_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_radiobutton5_2ans_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_radiobutton6_3ans_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+// Modifier Cours
+void on_modifiercours1_clicked(GtkWidget *button, gpointer user_data);
 
-/* Check buttons (modification) */
-void on_checkbutton13_C_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton16_LD_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton15_Z_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton14_Y_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton9_BC_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton10_BA_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton11_BP_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
-void on_checkbutton12_BB_M_toggled(GtkToggleButton *togglebutton, gpointer user_data);
+// Identification Admin
+void on_identidier1_clicked(GtkWidget *button, gpointer user_data);
+void on_idenifier_membre1_clicked(GtkWidget *button, gpointer user_data);
 
-/* Boutons modification */
-void on_button_chercher_id_M_clicked(GtkWidget *button, gpointer user_data);
-void on_button2_enregistrer_M_clicked(GtkWidget *button, gpointer user_data);
-void on_button4_chercher_clicked(GtkWidget *button, gpointer user_data);
+// Entrée Buttons
+void on_button_entree_mem_clicked(GtkWidget *button, gpointer user_data);
+void on_button_entree_admin_clicked(GtkWidget *button, gpointer user_data);
 
-void refresh_treeview(GtkWidget *treeview);
-void load_cours_into_treeview(GtkWidget *treeview);
-void on_window_show(GtkWidget *widget, gpointer user_data);
+// Recherche Buttons
+void on_button_rechercher1_clicked(GtkWidget *button, gpointer user_data);
+void on_treeview1_row_activated(GtkTreeView *treeview, GtkTreePath *path, GtkTreeViewColumn *column, gpointer user_data);
+void on_button_retourner1_clicked(GtkWidget *button, gpointer user_data);
 
-#endif /* CALLBACKS_H_INCLUDED */
+// Recherche par filtres
+void on_button_rech_date1_clicked(GtkWidget *button, gpointer user_data);
+void on_button_rech_type_clicked(GtkWidget *button, gpointer user_data);
+void on_button_rech_coach1_clicked(GtkWidget *button, gpointer user_data);
+void on_button_rech_id1_clicked(GtkWidget *button, gpointer user_data);
+void on_button_cherchcoach_clicked(GtkWidget *button, gpointer user_data);
+void on_button_rechdate_clicked(GtkWidget *button, gpointer user_data);
+void on_button_rechtype_clicked(GtkWidget *button, gpointer user_data);
+
+#endif // CALLBACKS_H
+
+
+
+
+void
+on_button_sinscrire_clicked            (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_annuler1_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_annuler3_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_annuler6_clicked             (GtkButton       *button,
+                                        gpointer         user_data);
+
+void
+on_button_annuler8_clicked             (GtkButton       *button,
+                                        gpointer         user_data);

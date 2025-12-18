@@ -86,7 +86,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = c_b_gestion_des_coach$(EXEEXT)
+bin_PROGRAMS = projet8$(EXEEXT)
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.in
@@ -99,11 +99,11 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_c_b_gestion_des_coach_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
-	interface.$(OBJEXT) callbacks.$(OBJEXT) coach.$(OBJEXT)
-c_b_gestion_des_coach_OBJECTS = $(am_c_b_gestion_des_coach_OBJECTS)
+am_projet8_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
+	interface.$(OBJEXT) callbacks.$(OBJEXT)
+projet8_OBJECTS = $(am_projet8_OBJECTS)
 am__DEPENDENCIES_1 =
-c_b_gestion_des_coach_DEPENDENCIES = $(am__DEPENDENCIES_1)
+projet8_DEPENDENCIES = $(am__DEPENDENCIES_1)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -132,8 +132,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(c_b_gestion_des_coach_SOURCES)
-DIST_SOURCES = $(c_b_gestion_des_coach_SOURCES)
+SOURCES = $(projet8_SOURCES)
+DIST_SOURCES = $(projet8_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -277,14 +277,13 @@ INCLUDES = \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	@PACKAGE_CFLAGS@
 
-c_b_gestion_des_coach_SOURCES = \
+projet8_SOURCES = \
 	main.c \
 	support.c support.h \
 	interface.c interface.h \
-	callbacks.c callbacks.h \
-	coach.c coach.h 
+	callbacks.c callbacks.h
 
-c_b_gestion_des_coach_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
+projet8_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
 
 .SUFFIXES:
@@ -361,9 +360,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-c_b_gestion_des_coach$(EXEEXT): $(c_b_gestion_des_coach_OBJECTS) $(c_b_gestion_des_coach_DEPENDENCIES) $(EXTRA_c_b_gestion_des_coach_DEPENDENCIES) 
-	@rm -f c_b_gestion_des_coach$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(c_b_gestion_des_coach_OBJECTS) $(c_b_gestion_des_coach_LDADD) $(LIBS)
+projet8$(EXEEXT): $(projet8_OBJECTS) $(projet8_DEPENDENCIES) $(EXTRA_projet8_DEPENDENCIES) 
+	@rm -f projet8$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(projet8_OBJECTS) $(projet8_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -372,7 +371,6 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/callbacks.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/coach.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interface.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/support.Po@am__quote@
